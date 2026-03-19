@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -69,6 +69,8 @@ function App() {
         enableHighAccuracy: true,
         maximumAge: 0
         // 30000 // allow cache for 30 sec
+        ,
+        timeout: 10000
       }
     );
   };
@@ -91,9 +93,9 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchLocation();
-  }, []);
+  // useEffect(() => {
+  //   fetchLocation();
+  // }, []);
 
   return (
     <div className="app">
