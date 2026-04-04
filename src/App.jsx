@@ -1,5 +1,6 @@
 import { useState } from "react";
 // import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -98,47 +99,63 @@ function App() {
   // }, []);
 
   return (
-    <div className="app">
-      <div className="card">
-        <h1>What is my Pincode?</h1>
+    <>
+      <Helmet>
+        <title>What is my Pincode? | Free Tool</title>
+        <meta name="google-site-verification" content="TkT33W9JYJyY0IuJVGesp0McbeIJnDVYLCEbG-l178A" />
+        <meta
+          name="description"
+          content="Get your current location instantly with one click. Free tool to find Pincode, latitude and longitude."
+        />
 
-        <button onClick={fetchLocation} disabled={loading}>
-          {loading ? "Fetching..." : "Get My Pincode"}
-        </button>
+        <meta
+          name="keywords"
+          content="my location, find my location, latitude longitude, pincode, what is my pincode"
+        />
+      </Helmet>
+      <div className="app">
+        <div className="card">
+          <h1>What is my Pincode?</h1>
 
-        {/* {loading && <p>Fetching your location... ⏳</p>} */}
-        {loading && <div className="loader"></div>}
+          <button onClick={fetchLocation} disabled={loading}>
+            {loading ? "Fetching..." : "Get My Pincode"}
+          </button>
 
-        {error && <p className="error">{error}</p>}
+          {/* {loading && <p>Fetching your location... ⏳</p>} */}
+          {loading && <div className="loader"></div>}
 
-       {pincode && (
-  <div className="pincode-box">
-    <h2>{pincode}</h2>
+          {error && <p className="error">{error}</p>}
 
-    <div className="actions">
-      <button onClick={copyPincode}>Copy</button>
-      <button onClick={shareLocation}>Share</button>
-    </div>
-  </div>
-)}
+          {pincode && (
+            <div className="pincode-box">
+              <h2>{pincode}</h2>
 
-{city && (
-  <div className="details">
-    <p>{city}, {stateName}</p>
-    <p>{country}</p>
-  </div>
-)}
+              <div className="actions">
+                <button onClick={copyPincode}>Copy</button>
+                <button onClick={shareLocation}>Share</button>
+              </div>
+            </div>
+          )}
 
-{fullAddress && (
-  <p className="coords">{fullAddress}</p>
-)}
-        {latitude && longitude && (
-          <p className="coords">
-            {latitude}, {longitude}
-          </p>
-        )}
+          {city && (
+            <div className="details">
+              <p>{city}, {stateName}</p>
+              <p>{country}</p>
+            </div>
+          )}
+
+          {fullAddress && (
+            <p className="coords">{fullAddress}</p>
+          )}
+          {latitude && longitude && (
+            <p className="coords">
+              {latitude}, {longitude}
+            </p>
+          )}
+        </div>
       </div>
-    </div>
+    </>
+
   );
 }
 
