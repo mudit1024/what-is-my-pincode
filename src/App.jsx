@@ -102,7 +102,6 @@ function App() {
     <>
       <Helmet>
         <title>What is my Pincode? | Free Tool</title>
-        <meta name="google-site-verification" content="TkT33W9JYJyY0IuJVGesp0McbeIJnDVYLCEbG-l178A" />
         <meta
           name="description"
           content="Get your current location instantly with one click. Free tool to find Pincode, latitude and longitude."
