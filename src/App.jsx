@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { AccountBar } from "./auth/AccountBar";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -113,6 +114,7 @@ function App() {
         />
       </Helmet>
       <div className="app">
+        <AccountBar />
         <div className="card">
           <h1>What is my Pincode?</h1>
 
